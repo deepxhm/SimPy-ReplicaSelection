@@ -1,0 +1,220 @@
+#!/bin/bash
+
+cd simulations;
+
+# Run tests
+python -m unittest discover . '*test*.py'
+
+python experiment.py  \
+ 	--numClients 300 \
+	--numServers 50 \
+	--numWorkload 200 \
+	--workloadModel poisson \
+	--serverConcurrency 4 \
+	--serviceTime 4 \
+	--utilization 0.70 \
+	--serviceTimeModel random.expovariate \
+	--replicationFactor 3 \
+	--rateInterval  20\
+	--cubicC 0.000004\
+	--cubicSmax 10\
+	--cubicBeta 0.2\
+	--hysterisisFactor 2\
+	--selectionStrategy InterC \
+	--shadowReadRatio 0.1 \
+	--accessPattern uniform \
+	--nwLatencyBase 0.25 \
+	--nwLatencyMu 0.0\
+	--nwLatencySigma 0.00 \
+	--expPrefix InterC-seed1inter10\
+	--simulationDuration 50000 \
+	--seed 1 \
+	--numRequests 600000\
+	--logFolder logs\
+	--expScenario timeVaryingServiceTimeServers\
+	--demandSkew 0.0\
+	--highDemandFraction 0.0\
+	--slowServerFraction 0.0\
+	--slowServerSlowness 0.0\
+	--intervalParam 200\
+	--timeVaryingDrift 3\
+	--concurrencyWeight 150\
+	--batchSizeModel constant\
+	--batchSizeParam 1;
+
+
+python experiment.py  \
+ 	--numClients 300 \
+	--numServers 50 \
+	--numWorkload 200 \
+	--workloadModel poisson \
+	--serverConcurrency 4 \
+	--serviceTime 4 \
+	--utilization 0.70 \
+	--serviceTimeModel random.expovariate \
+	--replicationFactor 3 \
+	--rateInterval  20\
+	--cubicC 0.000004\
+	--cubicSmax 10\
+	--cubicBeta 0.2\
+	--hysterisisFactor 2\
+	--selectionStrategy InterC \
+	--shadowReadRatio 0.1 \
+	--accessPattern uniform \
+	--nwLatencyBase 0.25 \
+	--nwLatencyMu 0.0\
+	--nwLatencySigma 0.00 \
+	--expPrefix InterC-seed16inter10\
+	--simulationDuration 50000 \
+	--seed 16 \
+	--numRequests 600000\
+	--logFolder logs\
+	--expScenario timeVaryingServiceTimeServers\
+	--demandSkew 0.0\
+	--highDemandFraction 0.0\
+	--slowServerFraction 0.0\
+	--slowServerSlowness 0.0\
+	--intervalParam 200\
+	--timeVaryingDrift 3\
+	--concurrencyWeight 150\
+	--batchSizeModel constant\
+	--batchSizeParam 1;
+
+
+
+python experiment.py  \
+ 	--numClients 300 \
+	--numServers 50 \
+	--numWorkload 200 \
+	--workloadModel poisson \
+	--serverConcurrency 4 \
+	--serviceTime 4 \
+	--utilization 0.70 \
+	--serviceTimeModel random.expovariate \
+	--replicationFactor 3 \
+	--rateInterval  20\
+	--cubicC 0.000004\
+	--cubicSmax 10\
+	--cubicBeta 0.2\
+	--hysterisisFactor 2\
+	--selectionStrategy InterC \
+	--shadowReadRatio 0.1 \
+	--accessPattern uniform \
+	--nwLatencyBase 0.25 \
+	--nwLatencyMu 0.0\
+	--nwLatencySigma 0.00 \
+	--expPrefix InterC-seed128inter10\
+	--simulationDuration 50000 \
+	--seed 128 \
+	--numRequests 600000\
+	--logFolder logs\
+	--expScenario timeVaryingServiceTimeServers\
+	--demandSkew 0.0\
+	--highDemandFraction 0.0\
+	--slowServerFraction 0.0\
+	--slowServerSlowness 0.0\
+	--intervalParam 200\
+	--timeVaryingDrift 3\
+	--concurrencyWeight 150\
+	--batchSizeModel constant\
+	--batchSizeParam 1;
+
+
+
+
+python experiment.py  \
+ 	--numClients 300 \
+	--numServers 50 \
+	--numWorkload 200 \
+	--workloadModel poisson \
+	--serverConcurrency 4 \
+	--serviceTime 4 \
+	--utilization 0.70 \
+	--serviceTimeModel random.expovariate \
+	--replicationFactor 3 \
+	--rateInterval  20\
+	--cubicC 0.000004\
+	--cubicSmax 10\
+	--cubicBeta 0.2\
+	--hysterisisFactor 2\
+	--selectionStrategy InterC \
+	--shadowReadRatio 0.1 \
+	--accessPattern uniform \
+	--nwLatencyBase 0.25 \
+	--nwLatencyMu 0.0\
+	--nwLatencySigma 0.00 \
+	--expPrefix InterC-seed1024inter10\
+	--simulationDuration 50000 \
+	--seed 1024 \
+	--numRequests 600000\
+	--logFolder logs\
+	--expScenario timeVaryingServiceTimeServers\
+	--demandSkew 0.0\
+	--highDemandFraction 0.0\
+	--slowServerFraction 0.0\
+	--slowServerSlowness 0.0\
+	--intervalParam 200\
+	--timeVaryingDrift 3\
+	--concurrencyWeight 150\
+	--batchSizeModel constant\
+	--batchSizeParam 1;
+
+
+
+
+python experiment.py  \
+ 	--numClients 300 \
+	--numServers 50 \
+	--numWorkload 200 \
+	--workloadModel poisson \
+	--serverConcurrency 4 \
+	--serviceTime 4 \
+	--utilization 0.70 \
+	--serviceTimeModel random.expovariate \
+	--replicationFactor 3 \
+	--rateInterval  20\
+	--cubicC 0.000004\
+	--cubicSmax 10\
+	--cubicBeta 0.2\
+	--hysterisisFactor 2\
+	--selectionStrategy InterC \
+	--shadowReadRatio 0.1 \
+	--accessPattern uniform \
+	--nwLatencyBase 0.25 \
+	--nwLatencyMu 0.0\
+	--nwLatencySigma 0.00 \
+	--expPrefix InterC-seed20480inter10\
+	--simulationDuration 50000 \
+	--seed 20480 \
+	--numRequests 600000\
+	--logFolder logs\
+	--expScenario timeVaryingServiceTimeServers\
+	--demandSkew 0.0\
+	--highDemandFraction 0.0\
+	--slowServerFraction 0.0\
+	--slowServerSlowness 0.0\
+	--intervalParam 200\
+	--timeVaryingDrift 3\
+	--concurrencyWeight 150\
+	--batchSizeModel constant\
+	--batchSizeParam 1;
+
+
+
+
+cd ..
+cd plotting;
+# Rscript timeseries.r primary;
+# Rscript timeseries.r rp;
+# Rscript timeseries.r clairvoyant;
+# Rscript timeseries.r clairvoyant2;
+# Rscript timeseries.r pending;
+# Rscript timeseries.r pendingXserviceTime;
+# Rscript timeseries.r oracle;
+
+Rscript timeseries.r InterC-seed1inter200;
+Rscript timeseries.r InterC-seed16inter200;
+Rscript timeseries.r InterC-seed128inter200;
+Rscript timeseries.r InterC-seed1024inter200;
+Rscript timeseries.r InterC-seed20480inter200;
+cd ..

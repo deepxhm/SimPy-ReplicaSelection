@@ -1,0 +1,100 @@
+#!/bin/bash
+
+cd simulations;
+
+# Run tests
+python -m unittest discover . '*test*.py'
+
+python experiment.py  \
+ 	--numClients 150 \
+	--numServers 50 \
+	--numWorkload 200 \
+	--workloadModel poisson \
+	--serverConcurrency 4 \
+	--serviceTime 4 \
+	--utilization 0.65 \
+	--serviceTimeModel random.expovariate \
+	--replicationFactor 3 \
+	--backpressure \
+	--rateInterval  20\
+	--cubicC 0.000004\
+	--cubicSmax 10\
+	--cubicBeta 0.2\
+	--hysterisisFactor 2\
+	--selectionStrategy 2C \
+	--shadowReadRatio 0.1 \
+	--accessPattern uniform \
+	--nwLatencyBase 0.2 \
+	--nwLatencyMu 0.0\
+	--nwLatencySigma 0.00 \
+	--expPrefix two_choices \
+	--simulationDuration 50000 \
+	--seed 3 \
+	--numRequests 600000\
+	--logFolder logs\
+	--expScenario timeVaryingServiceTimeServers\
+	--demandSkew 0.0\
+	--highDemandFraction 0.0\
+	--slowServerFraction 0.0\
+	--slowServerSlowness 0.0\
+	--intervalParam 10\
+	--timeVaryingDrift 3\
+	--concurrencyWeight 150\
+	--batchSizeModel constant\
+	--batchSizeParam 1;
+
+
+# # # To profile, replace the first line with:
+# # # python -m cProfile -o output.txt experiment.py \"
+
+python experiment.py  \
+ 	--numClients 150 \
+	--numServers 50 \
+	--numWorkload 200 \
+	--workloadModel poisson \
+	--serverConcurrency 4 \
+	--serviceTime 4 \
+	--utilization 0.65 \
+	--serviceTimeModel random.expovariate \
+	--replicationFactor 3 \
+	--backpressure \
+	--rateInterval  20\
+	--cubicC 0.000004\
+	--cubicSmax 10\
+	--cubicBeta 0.2\
+	--hysterisisFactor 2\
+	--selectionStrategy C3 \
+	--shadowReadRatio 0.1 \
+	--accessPattern uniform \
+	--nwLatencyBase 0.2 \
+	--nwLatencyMu 0.0\
+	--nwLatencySigma 0.00 \
+	--expPrefix expDelay \
+	--simulationDuration 50000 \
+	--seed 3 \
+	--numRequests 600000\
+	--logFolder logs\
+	--expScenario timeVaryingServiceTimeServers\
+	--demandSkew 0.0\
+	--highDemandFraction 0.0\
+	--slowServerFraction 0.0\
+	--slowServerSlowness 0.0\
+	--intervalParam 10\
+	--timeVaryingDrift 3\
+	--concurrencyWeight 150\
+	--batchSizeModel constant\
+	--batchSizeParam 1;
+
+
+cd ..
+cd plotting;
+# Rscript timeseries.r primary;
+# Rscript timeseries.r rp;
+# Rscript timeseries.r clairvoyant;
+# Rscript timeseries.r clairvoyant2;
+# Rscript timeseries.r pending;
+# Rscript timeseries.r pendingXserviceTime;
+# Rscript timeseries.r oracle;
+Rscript timeseries.r two_choices;
+Rscript timeseries.r expDelay;
+cd ..

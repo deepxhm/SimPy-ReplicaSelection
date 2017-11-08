@@ -1,0 +1,13 @@
+#!bash/bin
+
+./small-clopInterC-Inter10-Clients300-Uti70
+rm -rf ./logs/*
+rm -rf ./plotting/*.pdf
+
+./small-clopInterC-Inter200-Clients300-Uti70
+rm -rf ./logs/*
+rm -rf ./plotting/*.pdf
+
+./small-clopInterC-Inter500-Clients300-Uti70
+rm -rf ./logs/*
+rm -rf ./plotting/*.pdf
